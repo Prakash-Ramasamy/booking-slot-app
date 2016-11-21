@@ -259,8 +259,6 @@ $(document).ready(function () {
     }
 });
 
-
-
 $("#book-slots-table tbody td").on("click", function(e){
     $(this).toggleClass("booked");
 });
