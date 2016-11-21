@@ -134,11 +134,11 @@ h1 {
              {
                 background:olive !important;
              }
-            .booking-page .btnBooked:active, .booking-page .btnBooked:hover
+           /* .booking-page .btnBooked:active, .booking-page .btnBooked:hover
              {
                 background:red !important;
              }
-        .booking-page .btnFocus:focus
+            .booking-page .btnFocus:focus
              {
                 background:red !important;
-             }
+             }*/

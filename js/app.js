@@ -16,6 +16,9 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+var selectedSlot = '';
+
 var app = {
     deviceReadyCallbacks: function () {
         console.log("app - device ready callbacks");
@@ -84,6 +87,31 @@ var validation = {
         }
     }
 };
+
+/*Created by Prakash*/
+function bookSlot() {
+    var currentUserInfo = JSON.parse(sessionStorage.logged_user)
+    var date =new Date();
+    var slot = {
+        userName: currentUserInfo.email,
+        vehicleNo: $("#vehi_no").val(),
+        bookinTime: date.toLocaleDateString() + "T" + date.toLocaleTimeString(),
+        outTime: "",
+        slotID: getQueryVariable('id'),
+        IsIn: 0
+    }
+
+    saveData("bookslot", slot);
+}
+
+function setSlotID(id) {
+    selectedSlot = id;
+}
+
+function boolSlotRedirect() {
+    window.location = "booking.html?id="+selectedSlot;
+}
+/*Created by Prakash*/
 
 function registerUser(theForm) {
     var user = {
