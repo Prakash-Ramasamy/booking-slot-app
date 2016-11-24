@@ -32,6 +32,18 @@
         checkLogin(callback);
         
         //move the below to app.js
+        
+        $("#popupDialog").on( "popupafterclose", function( event, ui ) {
+            resetCPasswdForm();            
+        });
+        
+        function resetCPasswdForm(){
+            var theForm = $("#cpasswd_form");
+            theForm.find("#opassword").val("");
+            theForm.find("#password").val("");
+            theForm.find("#cpassword").val("");            
+        }
+        
         function updatePassword(){
             var theForm = $("#cpasswd_form");
             var key = "users";
