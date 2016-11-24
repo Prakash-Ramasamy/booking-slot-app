@@ -33,9 +33,9 @@
         
         //move the below to app.js
         
-        $("#popupDialog").on( "popupafterclose", function( event, ui ) {
-            resetCPasswdForm();            
-        });
+        $(document).on("popupafteropen", "#popupDialog",function( event, ui ) {
+            resetCPasswdForm();
+        }); 
         
         function resetCPasswdForm(){
             var theForm = $("#cpasswd_form");
@@ -69,6 +69,7 @@
                 updateData("users", "email", user.email, user);
                 var userStrData = JSON.stringify(user);
                 sessionStorage.setItem("logged_user", userStrData);
+                $("#popupDialog").popup("close"); 
             }
             return validUser;
         }
@@ -193,7 +194,7 @@
                         <br>
                         <div class="box">
                             <label for="submit"></label>
-                            <a href="#popupDialog" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" data-transition="pop" class="ui-btn clr-btn-grey extra-lg-btn waves-effect waves-button waves-effect waves-button">
+                            <a href="#popupDialog" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" data-transition="pop" class="changePasswdPopup ui-btn clr-btn-grey extra-lg-btn waves-effect waves-button waves-effect waves-button">
                                 <i class="zmdi zmdi-account-o"></i> Change Password
                             </a>
                         </div>
